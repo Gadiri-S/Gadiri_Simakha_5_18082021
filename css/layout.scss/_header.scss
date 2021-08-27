@@ -1,0 +1,44 @@
+header {
+    display: flex;
+    justify-content: space-evenly;
+    text-decoration: none;
+    padding: 20px 0px 20px 0px;
+color: whitesmoke;
+margin-bottom: 50px;
+background-color: rgb(64, 1, 136);
+}
+    
+     a {
+        text-decoration: none ;
+        color: whitesmoke;
+    
+        
+    }
+    
+    
+    
+    h1 {
+        font-size: 50px;
+    }
+    h3 {
+    margin-left: 15px;}
+        h1,h2 {
+            margin:0 ;   
+             margin-left: 15px;
+    
+        }
+        .cart {
+           
+            margin-right: 50px;
+            font-size: 35px;
+            color: whitesmoke;
+            text-decoration: none;
+            i {
+                color: whitesmoke;
+    
+            }
+            i:hover      
+              {transform: scale(1.4);}
+    
+             
+    }

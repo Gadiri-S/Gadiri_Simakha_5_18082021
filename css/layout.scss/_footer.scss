@@ -1,0 +1,33 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+color: whitesmoke;
+bottom: 0px;
+
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+h3 {
+    font-size: 20px;
+    padding-left: 0px;
+}
+   
+
+    a {
+        display: flex;
+        align-self: center;
+        color:whitesmoke;
+        font-size: 30px;
+    }
+   
+
+
+    text-decoration: none;
+
+    background-color: rgb(64, 1, 136);
+    ; 
+}
