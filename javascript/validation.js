@@ -3,6 +3,8 @@
 const inputs = document.querySelectorAll("input");
 const form = document.getElementById("form")
 const btn = document.getElementById('btn');
+const p = document.querySelectorAll("p")
+console.log(p)
 
 maino();
 
@@ -18,7 +20,7 @@ function maino(){
 const patterns = {
    firstName: /^[a-z]{2,}$/i, //Alphabétique et au moins 2 lettres, pas case sensitive
    lastName : /^[a-z]{2,}$/i, //Alphabétique et au moins 2 lettres, pas case sensitive
-   city : /^[a-z]+(?:[\s-][a-z]+)*$/i, //Alphabétique et au moins 2 lettres, pas case sensitive
+   city : /^[a-z]+(?:[\s-][a-z]+)*$/i, //Alphabétique et au moins une lettre, pas case sensitive
    address : /^[0-9]{1,} [a-z]{2,} [a-z]{2,}$/i, //Au moins 1 chiffre puis au moins deux fois 2 chaines de caractères 
    email : /^([a-z\d\.\_\-]+)@([a-z]+)\.[a-z]{2,8}$/i //Alphanumérique avec ._- puis @ puis alphabétique puis . puis alphabétique
     
@@ -33,9 +35,12 @@ if(regex.test(field.value)){
 field.className='valid'; 
 btn.className='btn';
 
+
 }else {
     field.className='invalid'; 
     btn.className="hide"
+    p.className="hel"
+
 } 
 }
 
@@ -74,7 +79,7 @@ function check(){
       !email.value 
      
     ) {
-      console.log("ERREUR");
+      (window.alert(`You must correctly fill all the fields`))
       event.preventDefault();
     } else {
 
@@ -154,38 +159,3 @@ function check(){
     }
        
 
-/*
-    for (let i = 0; i < form.length-1; i++) {
-           
-
-      
-      ///////////////////////////////////////////////// LOCAL STORAGE /////////////////////////////////////////
-
-        
- 
-      let fubar = {
-      firstName :form[0].value,
-      lastName : form[1].value,
-      email : form[2].value,
-      address : form[3].value,
-      city : form[4].value
-
-  }
-  
-      let formLocalStorage = JSON.parse(localStorage.getItem("contact"));        
-
-      if(formLocalStorage){
-          formLocalStorage.push(fubar);
-          localStorage.setItem("contact", JSON.stringify(formLocalStorage));}
-      else{
-  (formLocalStorage)
-  formLocalStorage = [];
-  formLocalStorage.push(fubar);
-  localStorage.setItem("contact", JSON.stringify(formLocalStorage));
-
-
-  
-  
-  ;}
-  
-}    */
