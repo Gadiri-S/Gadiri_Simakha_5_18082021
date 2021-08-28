@@ -282,6 +282,16 @@ form {
   margin: 40px 0 40px 0;
 }
 
+#form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .btn:hover {
   cursor: pointer;
 }
@@ -414,9 +424,18 @@ form {
 
 @media (min-width: 1000px) {
   #form {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-left: 40%;
+  }
+  #recap-product {
+    margin-top: 5%;
+    margin-left: 40%;
   }
 }
 /*# sourceMappingURL=style.css.map */
