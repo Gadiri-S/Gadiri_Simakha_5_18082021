@@ -24,7 +24,7 @@ const patterns = {
    address : /^[0-9]{1,} [a-z]{2,} [a-z]{2,}$/i, //Au moins 1 chiffre puis au moins deux fois 2 chaines de caractères 
    email : /^([a-z\d\.\_\-]+)@([a-z]+)\.[a-z]{2,8}$/i //Alphanumérique avec ._- puis @ puis alphabétique puis . puis alphabétique
     
-  
+   
 };
 
 

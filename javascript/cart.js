@@ -72,7 +72,7 @@ for (let y = 0; y < productInLocalStorage.length; y++) {
    finalPrice = total.reduce(reducer,0);
 
    totalPrice.innerHTML= `<h2>Total : ${finalPrice} euros</h2> `
-
+ 
 
 
   

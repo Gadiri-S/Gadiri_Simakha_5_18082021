@@ -363,7 +363,7 @@ form {
   animation: fadeIn 0.9s forwards ease-in-out;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 999px) {
   body {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -441,12 +441,20 @@ form {
   .container-form .btn {
     color: black;
     font-size: 10px;
-    font-family: 'Major Mono Display', monospace;
+    font-family: 'Syncopate', sans-serif;
     background-color: whitesmoke;
-    border-radius: 50%;
+    border-radius: 15px;
     height: 80px;
     width: 80px;
     border: 0px;
+  }
+}
+
+@media (min-width: 1000px) {
+  #form {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
   }
 }
 /*# sourceMappingURL=style.css.map */
