@@ -110,14 +110,11 @@ function check(){
       };
 
       console.log(order)    
-      // -------  Envoi de la requête POST au back-end --------
-      // Création de l'entête de la requête
+      //   Envoi  au back-end
     
-      // Préparation du prix formaté pour l'afficher sur la prochaine page
       let priceValidation = finalPrice;
       
     
-      // Envoie de la requête avec l'en-tête. On changera de page avec un localStorage qui ne contiendra plus que l'order id et le prix.
       fetch(`http://localhost:3000/api/cameras/order`,
       {
         method: "POST",
