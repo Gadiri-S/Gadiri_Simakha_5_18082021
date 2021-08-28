@@ -1,4 +1,7 @@
  //On convertit en format JSON pour le localstorage 
+
+
+
 let productInLocalStorage = JSON.parse(localStorage.getItem("product"));
 
  //On va injecter dans ce tableau vide le prix de tous les éléments selectionnés et utiliser la fonction reduce() pour l'addition
@@ -11,6 +14,10 @@ const list = document.getElementById("list-products");
 const totalPrice = document.getElementById("total_price");
 const main = document.getElementById("main-product");
 const containerForm = document.querySelector(".container-form")
+
+
+
+
 if(productInLocalStorage == "") {
     containerForm.innerHTML= "<h1>Your cart is empty</h1>"
 }
@@ -46,14 +53,14 @@ for (let i = 0; i < productInLocalStorage.length; i++) {
  
     })};
 
+
     function removeLocalStorage(button){
+
         let store = JSON.parse(localStorage.getItem("product")) || [];
         store.splice(button, 1);
         localStorage.setItem('product', JSON.stringify(store));
       }
     
-      
- 
   
     }
 

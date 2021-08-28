@@ -3,12 +3,11 @@
 const inputs = document.querySelectorAll("input");
 const form = document.getElementById("form")
 const btn = document.getElementById('btn');
-const p = document.querySelectorAll("p")
-console.log(p)
 
-maino();
 
-function maino(){
+mainCart();
+
+function mainCart(){
     listen();
     check();
 
@@ -139,7 +138,6 @@ function check(){
           localStorage.setItem("orderId", order.orderId);
          localStorage.setItem("total", priceValidation);
           
-         console.log(orderId)
 
            
           //  On peut commenter cette ligne pour vérifier le statut 201 de la requête fetch. Le fait de préciser la destination du lien ici et non dans la balise <a> du HTML permet d'avoir le temps de placer les éléments comme l'orderId dans le localStorage avant le changement de page.
