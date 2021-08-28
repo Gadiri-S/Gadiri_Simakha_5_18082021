@@ -19,7 +19,7 @@ const containerForm = document.querySelector(".container-form")
 
 
 if(productInLocalStorage == "") {
-    containerForm.innerHTML= "<h1>Your cart is empty</h1>"
+    containerForm.innerHTML= "<h2>Your cart is empty</h2>"
 }
 for (let i = 0; i < productInLocalStorage.length; i++) {
 

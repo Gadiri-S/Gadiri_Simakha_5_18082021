@@ -56,7 +56,7 @@ function getArticleId() {
         
        
     
-        <a href=${link}> <img class=img-product src="${article.imageUrl}"/></a>
+         <img class=img-product src="${article.imageUrl}"/>
         
         
          <form>
