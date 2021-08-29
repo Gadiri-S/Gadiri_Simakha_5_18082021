@@ -7,6 +7,11 @@
         overflow-x: hidden;
 
 header {
+    .logo {
+        height: 50px;
+        width: 150px;
+
+    }
     h1 {
         font-size: 30px;
     }
@@ -23,7 +28,12 @@ header {
         .footer {
             display: flex;
             flex-direction: column-reverse;
-            align-items: center;}
+            align-items: center;
+        
+        span {
+            margin-top: 10px;
+        }
+        }
 
         
 .container {
