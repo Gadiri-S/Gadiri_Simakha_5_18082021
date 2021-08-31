@@ -17,9 +17,9 @@ const containerForm = document.querySelector(".container-form")
 
 
 
-
+function addToCart(){
 if(productInLocalStorage == "") {
-    containerForm.innerHTML= "<h2>Your cart is empty</h2>"
+    containerForm.innerHTML= ""     //On veut éviter que l'utilisateur puisse avoir accès au formulaire sans passer d'achat
 }
 for (let i = 0; i < productInLocalStorage.length; i++) {
 
@@ -27,16 +27,23 @@ for (let i = 0; i < productInLocalStorage.length; i++) {
     const element = productInLocalStorage[i];
 
    
-    list.innerHTML+= `<span><ul><li class="item"> ${element.name}  (${element.lense}) x ${element.quantity}(units) :  ${element.price}  euros <a href="cart.html" class="remove">X Remove item</a></li></ul><span>`;
+    list.innerHTML+= `<div><ul><li class="item"> ${element.name}  (${element.lense}) x ${element.quantity}(units) :  ${element.price} euros <a href="cart.html" class="remove">X Remove item</a></li></ul></div>`;
+
+}}
 
 
+function removeLocalStorage(button){
+
+    let store = JSON.parse(localStorage.getItem("product")) || [];
+    store.splice(button,1);
+    localStorage.setItem('product', JSON.stringify(store));
+  }
 
 
-
-        ////////////////////////////////////////////////////////////////////
+        function deleteElt(){
 
         //On crée une fonction pour supprimer les éléments de notre panier au clic sur le lien "remove"
- const supr = document.getElementsByClassName("remove");
+ const supr = document.getElementsByClassName("item");
 
  for (let i = 0; i < supr.length; i++) {
      let button = supr[i]
@@ -47,28 +54,14 @@ for (let i = 0; i < productInLocalStorage.length; i++) {
 
       const buttonClicked =  e.target
 
-      buttonClicked.parentElement.remove()
-
-      removeLocalStorage(button);
+      buttonClicked.removeLocalStorage(button);
  
-    })};
-
-
-    function removeLocalStorage(button){
-
-        let store = JSON.parse(localStorage.getItem("product")) || [];
-        store.splice(button, 1);
-        localStorage.setItem('product', JSON.stringify(store));
-      }
-    
-  
-    }
-
-
-
+    })}}
 
 // On itère pour récupérer tous les prix et on utilise la fonction reduce pour les additionner et retourner notre prix final. 
 
+
+function addTotal() {
 for (let y = 0; y < productInLocalStorage.length; y++) {
     const elementPrice = productInLocalStorage[y].price;
 
@@ -78,10 +71,10 @@ for (let y = 0; y < productInLocalStorage.length; y++) {
 
    finalPrice = total.reduce(reducer,0);
 
-   totalPrice.innerHTML= `<h2>Total : ${finalPrice} euros</h2> `
- 
+   totalPrice.innerHTML= `<h2>Total : ${finalPrice} euros</h2> `}
 
-
-  
 }
 
+addTotal();
+addToCart();
+deleteElt();

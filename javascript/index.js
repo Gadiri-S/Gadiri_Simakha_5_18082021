@@ -1,15 +1,31 @@
 // Objectif : Récupérer l'ensemble des articles dans l'API et les afficher sur la page principale 
 
+const mainHTML = document.getElementById("main");
+
+
+
+// Dernière étape // 
 
 main() // La fonction est appellée 
 
-async function main() {  //La fonction doit être asynchrone car on doit attendre une autre fonction qui n'a pas encore été lancée
-const articles = await getArticle() // On attend que les articles soient récupérés sinon Js ne pourra pas afficher article
+async function main() {  //La fonction doit être asynchrone car on doit attendre que la promesse soit resolue 
+
+    const articles = await getArticle() // On attend que les articles soient récupérés 
 
 for (article of articles) { // Boucle for pour récupérer chaque article du tableau articles
     displayArticle(article) // Chaque article est afficher individuellement
+
+    
+
 }
+
+
 }
+
+
+// Première étape : Récupérer l'API et s'assurer que tout fonctionne en loggant les informations dans la console//
+
+
 
 function getArticle() { // Tout d'abord on doit récupérer l'API et afficher tous les articles dans la console
 
@@ -17,34 +33,39 @@ function getArticle() { // Tout d'abord on doit récupérer l'API et afficher to
 .then(
     function(res){
         if (res.ok) {
-            return res.json() // On peut vérifier à ce niveau si tout se passe bien en réalisant un console.log
+            return res.json()// On peut vérifier à ce niveau si tout se passe bien en réalisant un console.log
         }
     }
 ).then (
 
-    function (articles){
-        console.log(articles) //Idem, on devrait ici pouvoir afficher avec un console.log tous les articles de notre API
-return articles      
-  }
+    function (articles){   
+        console.log(articles)
+
+        return articles      // On retourne articles car on devra par la suite itéré à l'intérieur pour récupérer tous nos articles individuellement 
+    }
     
 
-).catch (                          
-    function(err){
-console.error("Error")
-  }
-);
+).catch((error) => {
+    console.log(error)
+    mainHTML.innerHTML+="<h2> It seems like there is an issue. Make sure to launch the server </h2>"
+    })
 
 }
-// La fonction displayArticle sert à afficher tous les articles récupérés dans l'API. 
- function displayArticle () {//On crée directement dans le DOM les classes, ID et div dans lesquels on va afficher nos articles
-    const link = "product.html"+`?id=${article._id}`
-    const main = document.getElementById("main");
 
-    main.innerHTML+=  `<div class="article">    
+
+//Deuxième étape : On crée une fonction displayAricle pour afficher chaque article individuellement// 
+
+ function displayArticle () {
+     
+    //On crée directement dans le DOM les classes, ID et div dans lesquels on va afficher nos articles
+    
+    const link = "product.html"+`?id=${article._id}`
+
+    mainHTML.innerHTML+=  `<div class="article">    
     
     <a href=${link}>
 
-    <span id="img"> <img class=img src="${article.imageUrl}"/></span>
+    <span class="img"> <img class=img src="${article.imageUrl}"/></span>
     
     <div class="container">
     <span id=name>Model: ${article.name}</span><br>
@@ -54,7 +75,5 @@ console.error("Error")
     </a>
     </div>`
 }
-
-const link = document.getElementById("link") 
 
  

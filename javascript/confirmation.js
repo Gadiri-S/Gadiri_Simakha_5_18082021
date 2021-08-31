@@ -1,13 +1,17 @@
-let orderId = localStorage.getItem('orderId')
+
+
+function confirmation(){
+    let orderId = localStorage.getItem('orderId')
 let priceValidation = localStorage.getItem('total')
 let ordr = document.getElementById("main-product")
-let links = document.getElementsByTagName("a")
 
-console.log(links)
+localStorage.clear();
 
-ordr.innerHTML=`<h3> Thank you for your purchase</h3> <h3> The total amount of your order is :
-${priceValidation}  euros</h3> <h3> Your order Id is :
+ordr.innerHTML=`<h3> Merci pour votre achat</h3> <h3> Le montant total de votre commande est de :
+${priceValidation}  euros</h3> <h3> Votre numéro de commande est :
 ${orderId} <h3> <a href="index.html"> 
-Back to home page </a> </h3>`
+Retour à l'accueil </a> </h3>`
+}
 
+confirmation();
 

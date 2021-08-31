@@ -5,6 +5,18 @@ const form = document.getElementById("form")
 const btn = document.getElementById('btn');
 
 
+//On crée les REGEX pour s'assurer que le formulaire sera bien rempli 
+
+const patterns = {
+  firstName: /^[a-z]{2,}$/i, //Alphabétique et au moins 2 lettres, pas case sensitive
+  lastName : /^[a-z]{2,}$/i, //Alphabétique et au moins 2 lettres, pas case sensitive
+  city : /^[a-z]+(?:[\s-][a-z]+)*$/i, //Alphabétique et au moins une lettre, pas case sensitive
+  address : /^[0-9]{1,} [a-z]{2,} [a-z]{2,}$/i, //Au moins 1 chiffre puis au moins deux fois 2 chaines de caractères 
+  email : /^([a-z\d\.\_\-]+)@([a-z]+)\.[a-z]{2,8}$/i //Alphanumérique avec ._- puis @ puis alphabétique puis . puis alphabétique
+   
+
+  
+};
 mainCart();
 
 function mainCart(){
@@ -13,18 +25,6 @@ function mainCart(){
 
     
 }
-//On crée les REGEX pour s'assurer que le formulaire sera bien rempli 
-
-
-const patterns = {
-   firstName: /^[a-z]{2,}$/i, //Alphabétique et au moins 2 lettres, pas case sensitive
-   lastName : /^[a-z]{2,}$/i, //Alphabétique et au moins 2 lettres, pas case sensitive
-   city : /^[a-z]+(?:[\s-][a-z]+)*$/i, //Alphabétique et au moins une lettre, pas case sensitive
-   address : /^[0-9]{1,} [a-z]{2,} [a-z]{2,}$/i, //Au moins 1 chiffre puis au moins deux fois 2 chaines de caractères 
-   email : /^([a-z\d\.\_\-]+)@([a-z]+)\.[a-z]{2,8}$/i //Alphanumérique avec ._- puis @ puis alphabétique puis . puis alphabétique
-    
-   
-};
 
 
 // On vérifie les regex. Si vrai, on attribue la classe valid au champ input, sinon on attribue la classe invalid. 
@@ -54,12 +54,6 @@ function listen(){
 inputs.forEach((input) => {
 input.addEventListener('keyup',(e)=> {
    validation(e.target,patterns[e.target.attributes.name.value]);
-
-
-
-   //On empêche l'utilisateur de soumettre le formulaire en appuyant sur la touche entrée
-   window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
-
 });
 
 });}
@@ -78,7 +72,7 @@ function check(){
       !email.value 
      
     ) {
-      (window.alert(`You must correctly fill all the fields`))
+      (window.alert(`Vous devez correctement remplir tous les champs`))
       event.preventDefault();
     } else {
 
@@ -137,7 +131,7 @@ function check(){
           
 
            
-          //  On peut commenter cette ligne pour vérifier le statut 201 de la requête fetch. Le fait de préciser la destination du lien ici et non dans la balise <a> du HTML permet d'avoir le temps de placer les éléments comme l'orderId dans le localStorage avant le changement de page.
+          //  On peut commenter cette ligne pour vérifier le statut 201 de la requête fetch. 
           document.location.href = "validation.html";
 
         })

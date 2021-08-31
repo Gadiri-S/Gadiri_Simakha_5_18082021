@@ -1,5 +1,10 @@
 // Objectif : Récupérer un seul article, l'afficher sur une page product, sauvegarder les données dans le local storage
 
+
+
+
+
+
 main()
 
 async function main () {
@@ -10,9 +15,12 @@ const article = await getArticle(articleId); // On attend l'élément articleID
 
 console.log(article) ;// On s'assure qu'il est bien récupéré avec un console.log
 
-displayArticle(article);// On affiche l'article sur la page
+displayArticle(article) ;// On affiche l'article sur la page
 
-};
+
+}
+
+;
 
 function getArticleId() {
     return new URL(location.href).searchParams.get("id") // On récupère l'URL de l'article par son ID
@@ -31,7 +39,8 @@ function getArticleId() {
             }
         ).then (
         
-            function (articles){  // On récupère notre article 
+            function (articles){  // On récupère notre article         
+
         return articles      
           }
             
@@ -47,6 +56,7 @@ function getArticleId() {
     
      
           function displayArticle(article) {  //On affiche notre article sur la page en créant les élément HTML sur le DOM
+        
         const link = "product.html"+`?id=${article._id}`
         const mainProduct = document.getElementById("main-product");
     
@@ -56,7 +66,7 @@ function getArticleId() {
         
        
     
-         <img class=img-product src="${article.imageUrl}"/>
+        <a href=${link}> <img class=img-product src="${article.imageUrl}"/></a>
         
         
          <form>
@@ -65,7 +75,7 @@ function getArticleId() {
         <select id="lenses">
         </select>    
         
-        <input type="number" id="quantity" name="quantity" min="1" max="100" placeholder="1" value="1" required> 
+        <input type="number" id="quantity" name="quantity" value="1" min="1" required> 
     
         <p id=description-product>Description:  ${article.description} </p> <br>
     
@@ -86,20 +96,30 @@ function getArticleId() {
         for (let i = 0; i < lensesList.length; i++) {
               document.getElementById("lenses").innerHTML+=`<option >${lensesList[i]}</option>}`}
 
-              
-//
+      
 
     const sendCart = document.getElementById("send"); //Au clic, on envoie les informations sur notre produit au localStorage et sur la page cart
           sendCart.addEventListener("click", (event)=>{
               event.preventDefault(); // Pas réactualiser la page
+
+              
     
               /// Pas obligatoire mais intéressant car permet de bien tester les fonctionnalités du site une fois que l'on est dans le panier
               const formInput =  document.getElementById("lenses"); //Récupération du choix de l'utilisateur dans le formulaire (lenses)
               const quantityInput =  document.getElementById("quantity"); //Récupération du choix de l'utilisateur dans le formulaire (qtes)
-            ///
+              
+              if (quantityInput.value <1) {
+
+                (window.alert(`Vous devez acheter au moins un article`))
+
+    
+            } else if (quantityInput.value >100){
+            
+                (window.alert(`Vous avez dépasser la quantité maximum`)) } else {
+
     
     
-              const formInputValue = formInput.value;
+            const formInputValue = formInput.value;
     const quantityInputValue = quantityInput.value;
               let optionProduct = {
                name:  article.name,
@@ -109,7 +129,10 @@ function getArticleId() {
                 quantity : quantityInputValue
     
               }
+
+              
              ///////////////////////////////////////////////// LOCAL STORAGE /////////////////////////////////////////
+        
     
     let productInLocalStorage = JSON.parse(localStorage.getItem("product")); //On convertit en format JSON pour le localstorage 
     
@@ -117,12 +140,13 @@ function getArticleId() {
     //Fonction confirmation ajout au panier
     
     const confirm = () => {
+
+    
+      
         if(window.confirm(`${optionProduct.name} has been added to the cart 
         Press OK to checkout or Cancel to continue your shopping`)) {
             window.location.href="cart.html";
-        } else {
-            window.location.href="index.html"
-        };
+        } 
     }
     
     // Si produit déjà déjà enregistré dans le local storage 
@@ -142,6 +166,9 @@ function getArticleId() {
     
     
     }
-          });}
-    
-    
+          }});
+        
+        
+        
+        }
+        
