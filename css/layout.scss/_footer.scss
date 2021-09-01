@@ -3,34 +3,37 @@
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
-color: whitesmoke;
-bottom: 0px;
+    color: whitesmoke;
+    bottom: 0px;
 
-
-.flex-container {
-    display: flex;
-    justify-content: center;
-}
-h3 {
-    font-size: 20px;
-    padding-left: 0px;
-} 
-   
+    .flex-container {
+        display: flex;
+        justify-content: center;
+    }
+    h3 {
+        font-size: 20px;
+        padding-left: 0px;
+    }
 
     a {
         display: flex;
         align-self: center;
-        color:whitesmoke;
+        color: whitesmoke;
         font-size: 30px;
     }
-   
-
 
     text-decoration: none;
 
     text-decoration: none;
     color: whitesmoke;
-    background: rgb(135,38,227);
-    background: linear-gradient(90deg, rgba(135,38,227,1) 0%, rgba(186,94,130,1) 78%, rgba(204,114,96,1) 91%, rgba(255,170,0,1) 100%);   background-repeat: no-repeat;
-        background-attachment: fixed;
+    background: rgb(135, 38, 227);
+    background: linear-gradient(
+        90deg,
+        rgba(135, 38, 227, 1) 0%,
+        rgba(186, 94, 130, 1) 78%,
+        rgba(204, 114, 96, 1) 91%,
+        rgba(255, 170, 0, 1) 100%
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }

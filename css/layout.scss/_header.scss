@@ -1,10 +1,16 @@
 header {
     text-decoration: none;
-color: whitesmoke;
-background: rgb(135,38,227);
-background: linear-gradient(90deg, rgba(135,38,227,1) 0%, rgba(186,94,130,1) 78%, rgba(204,114,96,1) 91%, rgba(255,170,0,1) 100%);   background-repeat: no-repeat;
+    color: whitesmoke;
+    background: rgb(135, 38, 227);
+    background: linear-gradient(
+        90deg,
+        rgba(135, 38, 227, 1) 0%,
+        rgba(186, 94, 130, 1) 78%,
+        rgba(204, 114, 96, 1) 91%,
+        rgba(255, 170, 0, 1) 100%
+    );
+    background-repeat: no-repeat;
     background-attachment: fixed;
-     
 
     .header {
         display: flex;
@@ -16,39 +22,30 @@ background: linear-gradient(90deg, rgba(135,38,227,1) 0%, rgba(186,94,130,1) 78%
         }
         .logo {
             height: 151px;
+        }
+    }
 
-        }
-    }
-    
-    
     a {
-        text-decoration: none ;
+        text-decoration: none;
         color: whitesmoke;
-    
-        
     }
-    
+}
+
+h1 {
+    font-size: 50px;
+}
+h3 {
+    margin-left: 15px;
+}
+h1,
+h2 {
+    margin: 0;
+    margin-left: 15px;
+}
+.cart {
+    color: whitesmoke;
+    text-decoration: none;
+    i {
+        color: whitesmoke;
     }
-    
-    
-    h1 {
-        font-size: 50px;
-    }
-    h3 {
-    margin-left: 15px;}
-        h1,h2 {
-            margin:0 ;   
-             margin-left: 15px;
-    
-        }
-        .cart {
-           
-        
-            color: whitesmoke;
-            text-decoration: none;
-            i {
-                color: whitesmoke;
-    
-            }
-              
-    }
+}

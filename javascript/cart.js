@@ -1,10 +1,9 @@
- //On convertit en format JSON pour le localstorage 
-
+//On convertit en format JSON pour le localstorage 
 
 
 let productInLocalStorage = JSON.parse(localStorage.getItem("product"));
 
- //On va injecter dans ce tableau vide le prix de tous les éléments selectionnés et utiliser la fonction reduce() pour l'addition
+//On va injecter dans ce tableau vide le prix de tous les éléments selectionnés et utiliser la fonction reduce() pour l'addition
 let total = [];
 
 
@@ -17,64 +16,57 @@ const containerForm = document.querySelector(".container-form")
 
 
 
-function addToCart(){
-if(productInLocalStorage == "") {
-    containerForm.innerHTML= ""     //On veut éviter que l'utilisateur puisse avoir accès au formulaire sans passer d'achat
+function addToCart() {
+    if (productInLocalStorage == "") {
+        containerForm.innerHTML = ""     //On veut éviter que l'utilisateur puisse avoir accès au formulaire sans passer d'achat
+    }
+    for (let i = 0; i < productInLocalStorage.length; i++) {
+
+
+        const element = productInLocalStorage[i];
+
+
+        list.innerHTML += `<div><ul><li class="item"> ${element.name}  (${element.lense}) x ${element.quantity}(unité(s)) :  ${element.price} euros </li></ul></div>`;
+
+    }
 }
-for (let i = 0; i < productInLocalStorage.length; i++) {
-
-   
-    const element = productInLocalStorage[i];
-
-   
-    list.innerHTML+= `<div><ul><li class="item"> ${element.name}  (${element.lense}) x ${element.quantity}(units) :  ${element.price} euros <a href="cart.html" class="remove">X Remove item</a></li></ul></div>`;
-
-}}
 
 
-function removeLocalStorage(button){
+function emptyCart() {
 
-    let store = JSON.parse(localStorage.getItem("product")) || [];
-    store.splice(button,1);
-    localStorage.setItem('product', JSON.stringify(store));
-  }
+    //On crée une fonction pour supprimer les éléments de notre panier au clic
+    const supr = document.getElementById("supr");
+    supr.addEventListener("click", (e) => {
 
-
-        function deleteElt(){
-
-        //On crée une fonction pour supprimer les éléments de notre panier au clic sur le lien "remove"
- const supr = document.getElementsByClassName("item");
-
- for (let i = 0; i < supr.length; i++) {
-     let button = supr[i]
-
-     
-     button.addEventListener("click", (e)=>{
+        localStorage.clear();
 
 
-      const buttonClicked =  e.target
-
-      buttonClicked.removeLocalStorage(button);
- 
-    })}}
+    })
+}
 
 // On itère pour récupérer tous les prix et on utilise la fonction reduce pour les additionner et retourner notre prix final. 
 
 
 function addTotal() {
-for (let y = 0; y < productInLocalStorage.length; y++) {
-    const elementPrice = productInLocalStorage[y].price;
+    for (let y = 0; y < productInLocalStorage.length; y++) {
+        const elementPrice = productInLocalStorage[y].price;
 
-    total.push(elementPrice);
+        total.push(elementPrice);
 
-    const reducer = (accumulator,currentValue) => accumulator+currentValue;
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-   finalPrice = total.reduce(reducer,0);
+        finalPrice = total.reduce(reducer, 0);
 
-   totalPrice.innerHTML= `<h2>Total : ${finalPrice} euros</h2> `}
+        totalPrice.innerHTML = `<h2>Total : ${finalPrice} euros</h2> `
+    }
 
 }
 
-addTotal();
-addToCart();
-deleteElt();
+function mainCart() {
+    addTotal();
+    addToCart();
+    emptyCart();
+
+}
+
+mainCart();
