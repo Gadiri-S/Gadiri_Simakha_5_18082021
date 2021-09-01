@@ -38,7 +38,6 @@ function validation(field, regex) {
   } else {
     field.className = 'invalid';
     btn.className = "hide"
-    p.className = "hel"
 
   }
 }

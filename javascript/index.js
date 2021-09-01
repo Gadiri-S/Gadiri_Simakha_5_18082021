@@ -13,7 +13,7 @@ async function main() {  //La fonction doit être asynchrone car on doit attendr
     const articles = await getArticle() // On attend que les articles soient récupérés 
 
     for (article of articles) { // Boucle for pour récupérer chaque article du tableau articles
-        displayArticle(article) // Chaque article est afficher individuellement
+        displayArticle(article) // Chaque article est affiché individuellement
 
 
 

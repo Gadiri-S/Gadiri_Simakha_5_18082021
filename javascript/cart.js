@@ -1,4 +1,3 @@
-//On convertit en format JSON pour le localstorage 
 
 
 let productInLocalStorage = JSON.parse(localStorage.getItem("product"));
@@ -17,9 +16,7 @@ const containerForm = document.querySelector(".container-form")
 
 
 function addToCart() {
-    if (productInLocalStorage == "") {
-        containerForm.innerHTML = ""     //On veut éviter que l'utilisateur puisse avoir accès au formulaire sans passer d'achat
-    }
+  
     for (let i = 0; i < productInLocalStorage.length; i++) {
 
 

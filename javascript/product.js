@@ -14,7 +14,7 @@ async function main() {
 
     const article = await getArticle(articleId); // On attend l'élément articleID
 
-    console.log(article);// On s'assure qu'il est bien récupéré avec un console.log
+   // On s'assure qu'il est bien récupéré avec un console.log
 
     displayArticle(article);// On affiche l'article sur la page
 
@@ -101,7 +101,7 @@ function displayArticle(article) {  //On affiche notre article sur la page en cr
 
 
 
-    const sendCart = document.getElementById("send"); //Au clic, on envoie les informations sur notre produit au localStorage et sur la page cart
+    const sendCart = document.getElementById("send"); //Au clic, on envoie les informations sur notre produit au localStorage
     sendCart.addEventListener("click", (event) => {
         event.preventDefault(); // Pas réactualiser la page
 
@@ -118,7 +118,7 @@ function displayArticle(article) {  //On affiche notre article sur la page en cr
 
         } else if (quantityInput.value > 100) { //Pas plus de 100
 
-            (window.alert(`Vous avez dépasser la quantité maximum`))
+            (window.alert(`Vous avez dépassé la quantité maximum`))
         } else {
 
 
@@ -138,8 +138,7 @@ function displayArticle(article) {  //On affiche notre article sur la page en cr
             ///////////////////////////////////////////////// LOCAL STORAGE /////////////////////////////////////////
 
 
-            let productInLocalStorage = JSON.parse(localStorage.getItem("product")); //On convertit en format JSON pour le localstorage 
-
+            let productInLocalStorage = JSON.parse(localStorage.getItem("product")); 
 
             //Fonction confirmation ajout au panier
 
